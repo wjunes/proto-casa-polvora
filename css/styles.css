@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  background-color: #f5f0e6;
+  color: #2c2c2c;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Playfair Display", serif;
+  color: #b7410e;
+}
+
+/* Header */
+header {
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: space-between !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #2f2f2f;
+}
+
+.title-content h1 {
+  color: #f06529;
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.title-content h3 {
+  color: #f06529;
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.logo-aa img {
+  max-height: 80px;
+  width: auto;
+  border-radius: 50%;
+}
+
+header .nav-link {
+  color: #f5f0e6 !important;
+}
+
+header .nav-link:hover {
+  color: #f8795c !important;
+  font-weight: bold;
+}
+
+.logo-cp {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  position: fixed;
+  max-width: 250px;
+  left: 0.5rem;
+  top: 0.25rem;
+  img {
+    max-height: 80px;
+    width: auto;
+    border-radius: 8px;
+  }
+}
+
+.logo-aa {
+  position: fixed;
+  right: 1.5rem;
+  top: 0.25rem;
+  z-index: 1000; /* Asegura que el logo esté por encima del resto del contenido */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+section {
+  scroll-margin-top: 120px; /* Ajusta este valor según la altura de tu header */
+}
+
+/* Carrusel */
+
+#hero {
+  margin-top: 0.5rem; /* Ajusta este valor según la altura de tu header */
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#hero .carousel-item img {
+  height: 450px;
+  width: 100%;
+  object-fit: cover;
+  margin-top: 6rem;
+}
+
+#hero .carousel-caption {
+  /* background: rgba(44, 44, 44, 0.1); */ /* fondo oscuro semitransparente */
+  padding: 1rem;
+  border-radius: 10px;
+}
+#hero .carousel-caption h5 {
+  font-size: 2rem;
+  color: #f5f0e6;
+}
+#hero .carousel-caption p {
+  color: #f5f0e6;
+}
+
+/* Botones */
+.carousel-caption .btn-primary:hover {
+  background-color: #ec4a04;
+  border-color: #b7410e;
+  color: #fff;
+}
+
+.carousel-caption .btn-primary {
+  background-color: #f06529;
+  border-color: #b7410e;
+  color: #fff;
+}
+
+.identidad {
+  margin-top: 1.5rem;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2f2f2f;
+  padding: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  p {
+    font-size: 0.6rem;
+    color: #f06529;
+    text-align: center;
+  }
+}
+
+.identidad .logo-aa-2 {
+  max-height: 80px;
+  width: auto;
+  border-radius: 50%;
+}
+
+.identidad h2 {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #f06529;
+}
+
+.identidad .logo-cp-2 {
+  max-height: 80px;
+  width: auto;
+  border-radius: 50%;
+}
+
+.col-md-4 .btn {
+  background-color: #f06529;
+  border-color: #b7410e;
+  color: #fff;
+}
+
+.col-md-4 .btn:hover {
+  background-color: #ec4a04;
+  border-color: #b7410e;
+  color: #fff;
+}
+
+.col-md-6 .btn {
+  background-color: #f06529;
+  border-color: #b7410e;
+  color: #fff;
+}
+.col-md-6 .btn:hover {
+  background-color: #8a2e0a;
+  border-color: #8a2e0a;
+  color: #fff;
+}
+.btn-outline-dark:hover {
+  background-color: #b7410e;
+  border-color: #b7410e;
+  color: #fff;
+}
+
+#contacto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #2c2c2c;
+  color: #f5f0e6;
+}
+footer a {
+  text-decoration: none;
+}
+footer a:hover {
+  color: #b7410e;
+}
+
+.logo-cp-ft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100px;
+
+  img {
+    max-height: 80px;
+    width: auto;
+    border-radius: 8px;
+  }
+}
+
+.logo-aa-ft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100px;
+
+  img {
+    max-height: 80px;
+    width: auto;
+    border-radius: 50%;
+  }
+}

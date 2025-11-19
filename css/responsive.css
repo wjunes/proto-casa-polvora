@@ -1,0 +1,79 @@
+@media (min-width: 320px) and (max-width: 1200px) {
+    body {
+        padding: 0.25rem;
+    }
+
+    #hero .carousel-item img {
+        height: 400px;
+        width: 100%;
+        
+    }
+
+    .btn-primary,
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.25rem 0.3rem;
+        border-radius: 5px;
+        max-height: 2rem;
+        margin-top: 1rem;
+    }
+
+    .logo-cp,
+    .logo-aa {
+        display: none;
+    }
+
+    .identidad {
+        width: 100%;
+        margin-top: 0.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 5px;
+        padding: 0.25rem;
+        background-color: #2f2f2f;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .logo-cp-2 {
+            max-height: 65px;
+            width: auto;
+            border-radius: 5px;
+        }
+        .logo-aa-2 {
+            max-height: 65px;
+            width: auto;
+            border-radius: 50%;
+        }
+    }
+
+    .logo-cp-ft,
+    .logo-aa-ft {
+        display: none;
+    }
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1rem;
+        a {
+            width: 100%;
+            text-align: center;
+            margin: 0;
+        }
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1201px) {
+    .identidad {
+        display: none;
+    }
+}
