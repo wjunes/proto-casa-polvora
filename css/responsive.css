@@ -3,10 +3,15 @@
         padding: 0.25rem;
     }
 
-    #hero .carousel-item img {
-        height: 400px;
+    #hero{
+        margin-top: 0; /* Ajusta este valor según la altura de tu header */
         width: 100%;
-        
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    #hero .carousel-item img {
+        height: 300px;
+        width: 100%;
     }
 
     .btn-primary,
