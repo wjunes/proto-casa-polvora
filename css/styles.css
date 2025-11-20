@@ -209,6 +209,14 @@ section {
   margin-bottom: 1rem;
 }
 
+#contacto .buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
 /* Footer */
 footer {
   display: flex;
@@ -219,9 +227,19 @@ footer {
   background-color: #2c2c2c;
   color: #f5f0e6;
 }
-footer a {
-  text-decoration: none;
+
+footer .copy a {
+  text-decoration: none !important;
+  color: #f5f0e6 !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
+
+footer .copy a:hover {
+  color: #f06529 !important;
+  text-decoration: underline !important;
+}
+
 footer a:hover {
   color: #b7410e;
 }

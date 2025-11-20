@@ -243,23 +243,58 @@
         <p class="text-center">Si tienes alguna consulta, no dudes en contactarnos.</p>
         <div class="buttons">
             <a href="mailto:info@casadelapolvora.uy" class="btn btn-primary">
-                <i class="fas fa-envelope me-2"></i>Enviar email
+                <i class="fas fa-envelope me-2"></i> <b>Enviar email</b>
             </a>
             <a href="tel:+1234567890" class="btn btn-secondary">
-                <i class="fas fa-phone me-2"></i>Llamar
+                <i class="fas fa-phone me-2"></i> <b>Llamar</b>
             </a>
             <a href="https://api.whatsapp.com/send?phone=59891941935" class="btn btn-success" target="_blank">
-                <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                <i class="fab fa-whatsapp me-2"></i> <b>WhatsApp</b>
             </a>
+            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#mapaModal">
+                <i class="fas fa-map-marker-alt me-2"></i> <b>Cómo llegar</b>
+            </button>
         </div>
     </section>
+
+    <!-- MODAL MAPA -->
+    <div class="modal fade" id="mapaModal" tabindex="-1" aria-labelledby="mapaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mapaModalLabel">
+                        <i class="fas fa-map-marker-alt me-2"></i>¿Cómo llegar?
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <h6><strong>Dirección:</strong></h6>
+                        <p>Bulgaria esq Pasaje de la Pólvora  <br>Montevideo, Uruguay</p>
+                    </div>
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d818.2598920416925!2d-56.2650545!3d-34.8803527!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a1d5fc802cdec7%3A0xaca7384eb095abd9!2sReal%20Casa%20de%20la%20P%C3%B3lvora!5e0!3m2!1ses-419!2suy!4v1763647391329!5m2!1ses-419!2suy"
+                             allowfullscreen loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d818.2598920416925!2d-56.2650545!3d-34.8803527!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a1d5fc802cdec7%3A0xaca7384eb095abd9!2sReal%20Casa%20de%20la%20P%C3%B3lvora!5e0!3m2!1ses-419!2suy!4v1763647391329!5m2!1ses-419!2suy" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-directions me-2"></i>Abrir en Google Maps
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="bg-dark text-white text-center py-4">
         <div class="logo-aa-ft">
             <img src="img/logos/asoc-logo.jpg" alt="">
         </div>
-        <p class="mb-1">Pasaje de la Pólvora esq Bulgaria - Montevideo - Uruguay</p>
+        <p class="mb-1">Bulgaria esq Pasaje de la Pólvora  - Montevideo - Uruguay</p>
         <div>
             <a href="https://www.facebook.com/profile.php?id=100069845740620" class="text-white me-3" title="Facebook"
                 target="_blank"><i class="fab fa-facebook-f fa-lg">
