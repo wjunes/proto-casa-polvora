@@ -37,7 +37,6 @@ header {
   background-color: #2f2f2f;
 }
 
-
 .logo-aa img {
   max-height: 80px;
   width: auto;
@@ -85,15 +84,15 @@ section {
 
 #hero {
   margin-top: 0.5rem; /* Ajusta este valor según la altura de tu header */
-  width: 100%;
+  width: 1280px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #hero .carousel-item img {
-  height: 450px;
+  height: 500px;
   width: 100%;
   object-fit: cover;
-  margin-top: 6rem;
+  margin-top: 5rem;
 }
 
 #hero .carousel-caption {
@@ -101,12 +100,17 @@ section {
   padding: 1rem;
   border-radius: 10px;
 }
-#hero .carousel-caption h5 {
-  font-size: 2rem;
-  color: #f5f0e6;
+#hero .carousel-caption h1 {
+  font-size: 3rem;
+  color: #f3f3f3;
+  background-color: rgba(44, 44, 44, 0.5);
+  border-radius: 5px;
 }
 #hero .carousel-caption p {
   color: #f5f0e6;
+  font-size: 1.5rem;
+  background-color: rgba(44, 44, 44, 0.5);
+  border-radius: 5px;
 }
 
 /* Botones */
