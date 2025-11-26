@@ -4,23 +4,62 @@
   box-sizing: border-box;
 }
 
+/* Variables CSS para consistencia */
+:root {
+  --color-principal: #f06529;
+  --color-secundario: #b7410e;
+  --color-fondo: #f5f0e6;
+  --color-texto: #2c2c2c;
+  --color-header: #2f2f2f;
+  --color-hover: #ec4a04;
+  --color-hover-dark: #8a2e0a;
+  --fuente-principal: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --fuente-titulos: "Playfair Display", Georgia, serif;
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Roboto", sans-serif;
-  background-color: #f5f0e6;
-  color: #2c2c2c;
+  font-family: var(--fuente-principal);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 h1,
 h2,
 h3,
 h4,
+h5,
+h6 {
+  font-family: var(--fuente-titulos);
+  color: var(--color-secundario);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
 h5 {
-  font-family: "Playfair Display", serif;
-  color: #b7410e;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
 }
 
 /* Header */
@@ -83,8 +122,9 @@ section {
 /* Carrusel */
 
 #hero {
-  margin-top: 0.5rem; /* Ajusta este valor según la altura de tu header */
-  width: 1280px;
+  margin-top: 0.5rem;
+  width: 100%;
+  max-width: 1280px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -96,96 +136,122 @@ section {
 }
 
 #hero .carousel-caption {
-  /* background: rgba(44, 44, 44, 0.1); */ /* fondo oscuro semitransparente */
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 10px;
+  bottom: 2rem;
 }
+
 #hero .carousel-caption h1 {
-  font-size: 3rem;
-  color: #f3f3f3;
-  background-color: rgba(44, 44, 44, 0.5);
-  border-radius: 5px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #fff;
+  background-color: rgba(44, 44, 44, 0.7);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+  line-height: 1.2;
 }
+
 #hero .carousel-caption p {
-  color: #f5f0e6;
-  font-size: 1.5rem;
-  background-color: rgba(44, 44, 44, 0.5);
-  border-radius: 5px;
+  color: var(--color-fondo);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  background-color: rgba(44, 44, 44, 0.7);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* Botones */
-.carousel-caption .btn-primary:hover {
-  background-color: #ec4a04;
-  border-color: #b7410e;
-  color: #fff;
+/* Botones - Estilos mejorados y consistentes */
+.btn {
+  font-family: var(--fuente-principal);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.5;
 }
 
+.btn:focus {
+  outline: 2px solid var(--color-principal);
+  outline-offset: 2px;
+}
+
+/* Botón primario del carrusel */
 .carousel-caption .btn-primary {
-  background-color: #f06529;
-  border-color: #b7410e;
+  background-color: var(--color-principal);
+  border-color: var(--color-principal);
   color: #fff;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.identidad {
-  margin-top: 1.5rem;
-  display: none;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #2f2f2f;
-  padding: 0.75rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  p {
-    font-size: 0.6rem;
-    color: #f06529;
-    text-align: center;
-  }
-}
-
-.identidad .logo-aa-2 {
-  max-height: 80px;
-  width: auto;
-  border-radius: 50%;
-}
-
-.identidad h2 {
-  font-size: 0.75rem;
-  font-weight: bold;
-  color: #f06529;
-}
-
-.identidad .logo-cp-2 {
-  max-height: 80px;
-  width: auto;
-  border-radius: 50%;
-}
-
-.col-md-3 .btn {
-  background-color: #f06529;
-  border-color: #b7410e;
+.carousel-caption .btn-primary:hover {
+  background-color: var(--color-hover);
+  border-color: var(--color-hover);
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.col-md-3 .btn:hover {
-  background-color: #ec4a04;
-  border-color: #b7410e;
+/* Botones en cards de 3 columnas */
+.col-md-3 .btn,
+.col-md-4 .btn {
+  background-color: var(--color-principal);
+  border-color: var(--color-secundario);
   color: #fff;
+  width: 100%;
+  font-weight: 500;
 }
 
+.col-md-3 .btn:hover,
+.col-md-4 .btn:hover {
+  background-color: var(--color-hover);
+  border-color: var(--color-hover);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Botones en secciones de 2 columnas */
 .col-md-6 .btn {
-  background-color: #f06529;
-  border-color: #b7410e;
+  background-color: var(--color-principal);
+  border-color: var(--color-secundario);
   color: #fff;
+  padding: 0.75rem 2rem;
+  font-weight: 500;
 }
+
 .col-md-6 .btn:hover {
-  background-color: #8a2e0a;
-  border-color: #8a2e0a;
+  background-color: var(--color-hover-dark);
+  border-color: var(--color-hover-dark);
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
+
+/* Botón outline oscuro */
+.btn-outline-dark {
+  background-color: transparent;
+  border-color: var(--color-texto);
+  color: var(--color-texto);
+  font-weight: 500;
+}
+
 .btn-outline-dark:hover {
-  background-color: #b7410e;
-  border-color: #b7410e;
+  background-color: var(--color-secundario);
+  border-color: var(--color-secundario);
   color: #fff;
+  transform: translateY(-2px);
 }
 
 #contacto {
