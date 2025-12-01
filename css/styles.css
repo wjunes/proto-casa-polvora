@@ -231,6 +231,19 @@ section {
   font-weight: 500;
 }
 
+.wap-algoritmos{
+  margin-top: 0.5rem;
+}
+
+.wap-algoritmos .btn{
+  width: 100%;
+  background-color: green !important ;
+}
+
+.wap-algoritmos .btn:hover{
+  background-color: darkgreen !important ;
+}
+
 .col-md-6 .btn:hover {
   background-color: var(--color-hover-dark);
   border-color: var(--color-hover-dark);
