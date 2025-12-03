@@ -39,6 +39,10 @@
                     <li class="nav-item"><a class="nav-link" href="pages/homenajes/homenajes.html">Homenajes</a></li>
                 </ul>
             </div>
+            <!-- Botón para cambiar tema -->
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
             <div class="logo-aa" href="#">
                 <img src="img/logos/asoc-logo.jpg" alt="Logo asociacion de amigos">
             </div>
@@ -97,9 +101,9 @@
 
     </div>
 
-    <!-- EL ESPACIO -->
+    <!-- EL ESPACIO-->
     <section id="espacio" class="container my-5">
-        <h2>El Espacio</h2>
+        <h2 class="text-center mb-4">El Espacio</h2>
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
@@ -119,7 +123,7 @@
         </div>
     </section>
 
-    <!-- AGENDA -->
+    <!-- AGENDA 
     <section id="agenda" class="container my-5">
         <h2 class="text-center mb-4">Agenda</h2>
         <div class="row g-4">
@@ -164,35 +168,49 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!-- GALERÍA -->
     <section id="galeria" class="container my-5">
         <h2 class="text-center mb-4">Galería</h2>
         <div class="row g-3">
             <div class="col-6 col-md-4">
-                <img src="img/galeria/porton-1.jpg" class="img-fluid rounded" alt="Foto 1">
+                <a href="img/galeria/porton-1.jpg" data-lightbox="galeria" target="_blank">
+                    <img src="img/galeria/porton-1.jpg" class="img-fluid rounded" alt="Foto 1">
+                </a>
             </div>
             <div class="col-6 col-md-4">
-                <img src="img/galeria/porton-2.jpg" class="img-fluid rounded" alt="Foto 2">
+                <a href="img/galeria/porton-2.jpg" data-lightbox="galeria" target="_blank">
+                    <img src="img/galeria/porton-2.jpg" class="img-fluid rounded" alt="Foto 2">
+                </a>
             </div>
             <div class="col-6 col-md-4">
-                <img src="img/galeria/historia-2.png" class="img-fluid rounded" alt="Foto 3">
+                <a href="img/galeria/iris-polvora.png" data-lightbox="galeria" target="_blank">
+                    <img src="img/galeria/iris-polvora.png" class="img-fluid rounded" alt="Foto 3">
+                </a>
             </div>
             <div class="col-6 col-md-4">
-                <img src="img/galeria/casa-1.jpg" class="img-fluid rounded" alt="Foto 4">
+                <a href="img/galeria/casa-1-16-9.png" data-lightbox="galeria" target="_blank">
+                    <img src="img/galeria/casa-1-16-9.png" class="img-fluid rounded" alt="Foto 4">
+                </a>
             </div>
 
             <div class="col-6 col-md-4">
-                <img src="img/galeria/margaritas-2.jpg" class="img-fluid rounded" alt="Foto 3">
+                <a href="img/galeria/margaritas-2.jpg" data-lightbox="galeria" target="_blank">
+                    <img src="img/galeria/margaritas-2.jpg" class="img-fluid rounded" alt="Foto 3">
+                </a>
             </div>
             <div class="col-6 col-md-4">
-                <img src="img/galeria/casa-2.jpg" class="img-fluid rounded" alt="Foto 4">
+
+                <a href="img/galeria/casa-2.jpg" data-lightbox="galeria" target="_blank">
+                    <img src="img/galeria/casa-2.jpg" class="img-fluid rounded" alt="Foto 4">
+                </a>
             </div>
         </div>
     </section>
 
     <!-- AMIGOS -->
+    <!--
     <section id="amigos" class="container my-5">
         <h2 class="text-center mb-4">Asociación de Amigos</h2>
         <div class="row g-4">
@@ -237,7 +255,7 @@
                 </div>
             </div>
         </div>
-    </section>
+        </section>-->
 
     <!-- COLABORADORES -->
     <section id="colaboradores" class="container my-5">
@@ -254,9 +272,11 @@
                         alt="Evento 1">
                     <div class="card-body">
                         <h5 class="card-title">Servicio Técnico</h5>
-                        <p class="card-text">Brindamos soporte técnico especializado para todo tipo de computadoras.</p>
+                        <p class="card-text">Brindamos soporte técnico especializado para todo tipo de computadoras.
+                        </p>
                         <p class="card-text">Desarrollo de software, aplicaciones web, móviles y escritorio.</p>
-                        <a href="https://www.algoritmos.uy" class="btn btn-outline-dark" target="_blank">Saber Más</a>
+                        <a href="https://www.algoritmos.uy" class="btn btn-outline-dark" target="_blank">Saber
+                            Más</a>
                         <div class="wap-algoritmos">
                             <a href="https://api.whatsapp.com/send?phone=59891941935" class="btn btn-success"
                                 target="_blank">
@@ -269,31 +289,52 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="img/POLVORA-1.webp" height="400" width="250" class="card-img-top" alt="Evento 1">
+                    <img src="img/colab/generic-colab.png" height="400" width="250" class="card-img-top" alt="Evento 1">
                     <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"></p>
+                        <h5 class="card-title">Sea parte de nuestros Colaboradores</h5>
+                        <p class="card-text">Únete a nosotros y colabora en este proyecto.</p>
+                        <p>Su marca ocupará un lugar destacado en nuestra plataforma.</p>
                         <a href="#" class="btn btn-outline-dark">Más info</a>
+                        <div class="wap-algoritmos">
+                            <a href="https://api.whatsapp.com/send?phone=59891941935" class="btn btn-success"
+                                target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i> <b>WhatsApp</b>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="img/POLVORA-1.webp" height="400" width="250" class="card-img-top" alt="Evento 1">
+                    <img src="img/colab/generic-colab.png" height="400" width="250" class="card-img-top" alt="Evento 1">
                     <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"></p>
+                        <h5 class="card-title">Sea parte de nuestros Colaboradores</h5>
+                        <p class="card-text">Únete a nosotros y colabora en este proyecto.</p>
+                        <p>Su marca ocupará un lugar destacado en nuestra plataforma.</p>
                         <a href="#" class="btn btn-outline-dark">Más info</a>
+                        <div class="wap-algoritmos">
+                            <a href="https://api.whatsapp.com/send?phone=59891941935" class="btn btn-success"
+                                target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i> <b>WhatsApp</b>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="img/POLVORA-1.webp" height="400" width="250" class="card-img-top" alt="Evento 1">
+                    <img src="img/colab/generic-colab.png" height="400" width="250" class="card-img-top" alt="Evento 1">
                     <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <p class="card-text"></p>
+                        <h5 class="card-title">Sea parte de nuestros Colaboradores</h5>
+                        <p class="card-text">Únete a nosotros y colabora en este proyecto.</p>
+                        <p>Su marca ocupará un lugar destacado en nuestra plataforma.</p>
                         <a href="#" class="btn btn-outline-dark">Más info</a>
+                        <div class="wap-algoritmos">
+                            <a href="https://api.whatsapp.com/send?phone=59891941935" class="btn btn-success"
+                                target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i> <b>WhatsApp</b>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -390,6 +431,58 @@
     <!-- Script para cerrar menú móvil al hacer click en enlaces -->
     <script src="js/navbar.js">
 
+    </script>
+
+    <!-- Script para cambio de tema Dark/Light -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+            const htmlElement = document.documentElement;
+
+            // Verificar si hay tema guardado en localStorage
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme) {
+                htmlElement.setAttribute('data-theme', currentTheme);
+                updateIcon(currentTheme);
+            }
+
+            // Función para actualizar el icono
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            }
+
+            // Event listener para el botón
+            themeToggle.addEventListener('click', function () {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                // Cambiar tema
+                if (newTheme === 'dark') {
+                    htmlElement.setAttribute('data-theme', 'dark');
+                } else {
+                    htmlElement.removeAttribute('data-theme');
+                }
+
+                // Guardar preferencia en localStorage
+                localStorage.setItem('theme', newTheme);
+
+                // Actualizar icono
+                updateIcon(newTheme);
+
+                // Animación del botón
+                themeToggle.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    themeToggle.style.transform = '';
+                }, 300);
+            });
+        });
     </script>
 </body>
 

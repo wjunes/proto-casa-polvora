@@ -32,6 +32,21 @@
         box-shadow: 0 0 0 0.25rem rgba(240, 101, 41, 0.25);
     }
 
+    header .navbar-nav {
+        width: auto !important;
+        align-items: center !important;
+        margin-left: 5rem !important;
+    }
+
+    /* Botón de tema en tablets y móviles */
+    .theme-toggle-btn {
+        right: 90px;
+        top: 25px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
     /* Hero / Carrusel mobile */
     #hero {
         margin-top: 0;
@@ -214,6 +229,15 @@
         font-size: 1.25rem;
     }
 
+    /* Botón de tema en móviles pequeños */
+    .theme-toggle-btn {
+        right: 75px;
+        top: 22px;
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+    }
+
     #hero .carousel-item img {
         height: 220px;
         margin-top: 5.5rem;
@@ -252,6 +276,15 @@
 @media (max-width: 400px) {
     body {
         font-size: 13px;
+    }
+
+    /* Botón de tema en móviles muy pequeños */
+    .theme-toggle-btn {
+        right: 70px;
+        top: 20px;
+        width: 35px;
+        height: 35px;
+        font-size: 0.85rem;
     }
 
     #hero .carousel-item img {
