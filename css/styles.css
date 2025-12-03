@@ -35,7 +35,7 @@
   --color-header: #0d0d0d;
 
   /* Variables específicas para tema oscuro */
-  --bg-body: #1a1a1a;
+  --bg-body: #3a3a3a;
   --bg-card: #2a2a2a;
   --bg-section: #252525;
   --text-primary: #e0e0e0;
@@ -52,13 +52,22 @@ body {
   align-items: center;
   justify-content: center;
   font-family: var(--fuente-principal);
-  background-color: var(--bg-body);
+  background-color: var(--bg-body) !important;
   color: var(--text-primary);
   font-size: 16px;
   line-height: 1.6;
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
+}
+
+section {
+  padding: 1rem 1rem;
+  background-color: var(--bg-section) !important;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--shadow-light);
+  transition: background-color 0.3s ease;
 }
 
 h1,
