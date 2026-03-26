@@ -1,0 +1,23 @@
+#amigos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#amigos img {
+    max-width:60%;
+    height: auto;
+}
+
+#agenda{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#agenda img {
+    max-width: 60%;
+    height: auto;
+}
+
+
