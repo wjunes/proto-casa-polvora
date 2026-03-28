@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/provisory.css">
+    <link rel="stylesheet" href="css/launcher.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome CDN -->
@@ -466,6 +467,46 @@
 
 
     </footer>
+    
+    <!-- POLVORINA LAUNCHER (botón de lanzamiento del asistente) -->
+    <div id="polvorina-launcher" aria-hidden="false">
+        <button id="polvorina-launcher-btn" class="btn btn-primary" aria-label="Polvorina, asistente cultural del Cerro" data-tooltip="Habla con Polvorina" role="button">
+            <img src="img/logos/robot.png" alt="Polvorina">
+            <span class="launcher-bubble">Habla conmigo</span>
+        </button>
+    </div>
+
+
+    <!-- Modal embebido para Polvorina -->
+    <div class="modal fade" id="polvorinaModal" tabindex="-1" aria-labelledby="polvorinaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+
+                <div class="modal-body p-0">
+                    <iframe id="polvorina-iframe" src="" title="Polvorina - Asistente"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    // Oculta la burbuja y el launcher cuando el modal está abierto, y los muestra al cerrar
+    document.addEventListener('DOMContentLoaded', function () {
+        var polvorinaModal = document.getElementById('polvorinaModal');
+        var launcher = document.getElementById('polvorina-launcher');
+        var bubble = document.querySelector('.launcher-bubble');
+        if (polvorinaModal && launcher && bubble) {
+            polvorinaModal.addEventListener('show.bs.modal', function () {
+                launcher.style.display = 'none';
+            });
+            polvorinaModal.addEventListener('hidden.bs.modal', function () {
+                launcher.style.display = '';
+            });
+        }
+    });
+    </script>
+    <script src="js/launcher.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -475,6 +516,8 @@
 
     <!-- Script para cambio de tema Dark/Light -->
     <script src="js/theme.js"></script>
+        <!-- Escucha mensajes del iframe de Polvorina (cerrar modal) -->
+        <script src="js/modal.js"></script>
 </body>
 
 </html>

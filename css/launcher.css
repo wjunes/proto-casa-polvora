@@ -1,0 +1,241 @@
+
+:root {
+    --polv-blue-500: #1b73b6;
+    --polv-white: #ffffff;
+    --polv-sunset-1: #ff6b6b;
+    --polv-sunset-2: #ff8a5b;
+    --polv-sunset-3: #b44b84;
+    --polv-sunset-gradient: linear-gradient(
+        135deg,
+        var(--polv-sunset-3) 0%,
+        var(--polv-sunset-1) 50%,
+        var(--polv-sunset-2) 100%
+    );
+}
+
+/* Tema oscuro para Polvorina launcher */
+[data-theme="dark"] {
+    --polv-blue-500: #0b4a78;
+    --polv-white: #e0e0e0;
+    --polv-sunset-1: #b44b84;
+    --polv-sunset-2: #7a3e5c;
+    --polv-sunset-3: #3a1a2a;
+    --polv-sunset-gradient: linear-gradient(
+        135deg,
+        var(--polv-sunset-3) 0%,
+        var(--polv-sunset-1) 50%,
+        var(--polv-sunset-2) 100%
+    );
+}
+
+/* Ajustes para el botón y la burbuja en modo oscuro */
+[data-theme="dark"] #polvorina-launcher-btn {
+    background: var(--polv-blue-500);
+    color: var(--polv-white);
+}
+[data-theme="dark"] .launcher-bubble {
+    background: var(--polv-sunset-gradient);
+    color: var(--polv-white);
+}
+[data-theme="dark"] #polvorina-launcher-btn[data-tooltip]::after {
+    background: var(--polv-sunset-gradient);
+    color: var(--polv-white);
+}
+[data-theme="dark"] #polvorina-launcher-btn[data-tooltip]::before {
+    background: var(--polv-sunset-3);
+}
+
+/* Estilos mínimos para el launcher */
+#polvorina-launcher {
+    position: fixed;
+    right: 1rem;
+    bottom: 3rem;
+    z-index: 1080;
+}
+#polvorina-launcher-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 22px rgba(11, 74, 120, 0.18);
+    border: none;
+    background: var(--polv-blue-500);
+    position: relative; /* contain the responsive bubble */
+}
+#polvorina-launcher-btn img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+/* Modal styling to match Polvorina palette */
+#polvorinaModal .modal-content {
+    border-radius: 14px;
+    overflow: hidden;
+}
+#polvorinaModal .modal-dialog {
+    /* Match the chat container width for a consistent visual */
+    max-width: 820px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+@media (min-width: 1100px) {
+    #polvorinaModal .modal-dialog {
+        max-width: 720px;
+    }
+}
+#polvorinaModal .modal-header {
+    background: var(--polv-sunset-gradient);
+    color: var(--polv-white);
+    align-items: center;
+    gap: 12px;
+}
+#polvorinaModal .modal-header .modal-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+#polvorinaModal .modal-header .modal-title img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 6px;
+    object-fit: contain;
+}
+#polvorinaModal .modal-header .modal-title .title-text {
+    display: inline-block;
+    font-size: 1.05rem;
+    line-height: 1;
+    letter-spacing: 0.2px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 0.98);
+}
+#polvorinaModal .modal-header .modal-title .title-sub {
+    display: block;
+    font-size: 0.78rem;
+    opacity: 0.9;
+    margin-top: 3px;
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 500;
+}
+#polvorinaModal .btn-close {
+    filter: brightness(1.6);
+}
+
+/* iframe area */
+#polvorina-iframe {
+    width: 100%;
+    height: 70vh;
+    border: 0;
+    display: block;
+}
+@media (max-width: 576px) {
+    #polvorina-iframe {
+        height: 85vh;
+    }
+}
+
+/* Custom styled tooltip using data-tooltip (replaces native title) */
+#polvorina-launcher-btn[data-tooltip] {
+    position: relative; /* positioning context for pseudo-element */
+}
+#polvorina-launcher-btn[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%) translateY(-8px);
+    bottom: 100%;
+    white-space: nowrap;
+    background: var(--polv-sunset-gradient);
+    color: var(--polv-white);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 0.5rem;
+    box-shadow: 0 6px 18px rgba(11, 74, 120, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: bottom right;
+    transition:
+        opacity 160ms ease,
+        transform 160ms ease;
+    z-index: 2000;
+    display: inline-block;
+}
+#polvorina-launcher-btn[data-tooltip]::before {
+    /* small arrow */
+    content: "";
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: calc(100% - 6px);
+    width: 12px;
+    height: 12px;
+    background: var(--polv-sunset-3);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 160ms ease;
+    z-index: 1999;
+}
+#polvorina-launcher-btn[data-tooltip]:hover::after,
+#polvorina-launcher-btn[data-tooltip]:focus::after {
+    opacity: 1;
+    transform: translateX(50%) translateY(-12px);
+}
+#polvorina-launcher-btn[data-tooltip]:hover::before,
+#polvorina-launcher-btn[data-tooltip]:focus::before {
+    opacity: 1;
+}
+
+/* Small screens: show tooltip above-left to avoid cutoff */
+@media (max-width: 420px) {
+    #polvorina-launcher-btn[data-tooltip]::after {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%) translateY(-8px);
+    }
+    #polvorina-launcher-btn[data-tooltip]::before {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Responsive launcher bubble: visible only on small screens */
+.launcher-bubble {
+    display: none;
+}
+@media (max-width: 768px) {
+    .launcher-bubble {
+        display: inline-block;
+        position: absolute;
+        right: calc(100% + 12px);
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--polv-sunset-gradient);
+        color: var(--polv-white);
+        padding: 8px 12px;
+        border-radius: 12px;
+        font-size: 0.85rem;
+        box-shadow: 0 6px 18px rgba(11, 74, 120, 0.18);
+        white-space: nowrap;
+        z-index: 2050;
+    }
+    .launcher-bubble::after {
+        content: "";
+        position: absolute;
+        right: -6px;
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        width: 12px;
+        height: 12px;
+        background: var(--polv-sunset-3);
+        box-shadow: 0 6px 18px rgba(11, 74, 120, 0.06);
+    }
+}

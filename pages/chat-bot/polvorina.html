@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Polvorina — Asistente</title>
+    <link rel="stylesheet" href="chatbot.css">
+    <!-- FontAwesome for icons inside the iframe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="polvorina-root">
+    <div class="polvo-container" role="application" aria-label="Chat con Polvorina">
+
+        <header class="polvo-header" role="banner">
+                    <div class="avatar" aria-hidden="true">
+                        <img src="/img/logos/robot.png" alt="Polvorina" class="avatar-img">
+                    </div>
+                    <div>
+                        <h1 class="polvo-title">Polvorina</h1>
+                        <p class="polvo-subtitle">Asistente cultural del Cerro</p>
+                    </div>
+
+                    <div class="polvo-actions">
+                <button id="btn-clear" class="btn btn-sm" title="Vaciar conversación" aria-label="Vaciar conversación">
+                    <i class="fas fa-trash" aria-hidden="true"></i>
+                    <span class="visually-hidden">Vaciar</span>
+                </button>
+                <button id="btn-close" class="btn btn-sm" title="Cerrar chat" aria-label="Cerrar chat">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                    <span class="visually-hidden">Cerrar</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="polvo-messages" id="messages" role="log" aria-live="polite" aria-relevant="additions">
+            <!-- Mensajes aparecerán aquí -->
+            <div class="msg assistant" data-ts="init">Hola, soy Polvorina. ¿En qué puedo ayudarte hoy?</div>
+        </main>
+
+        <div class="polvo-input" role="region" aria-label="Escribe tu mensaje">
+            <textarea id="input-text" placeholder="Escribe tu mensaje aquí..." aria-label="Mensaje" rows="1"></textarea>
+            <button id="btn-send" class="send" aria-label="Enviar mensaje">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                <span class="send-text">Enviar</span>
+                <span class="spinner" aria-hidden="true">⏳</span>
+            </button>
+        </div>
+
+    </div>
+
+    <script src="polvorina-api.js" defer></script>
+    <script src="polvorina.js" defer></script>
+</body>
+</html>
