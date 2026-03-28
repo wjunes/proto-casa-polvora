@@ -34,29 +34,39 @@ Este proyecto es un sitio web responsive diseñado para promover las actividades
 
 ## 📁 Estructura del Proyecto
 
+
 ```
 proto-casa-polvora/
 │
-├── index.html              # Página principal
-├── README.md              # Documentación del proyecto
-├── LICENSE                # Licencia del proyecto
+├── index.html              # Página principal (con launcher de Polvorina)
+├── README.md               # Documentación del proyecto
+├── LICENSE                 # Licencia del proyecto
 │
 ├── css/
-│   ├── styles.css         # Estilos principales
-│   └── responsive.css     # Estilos responsive (mobile-first)
+│   ├── styles.css          # Estilos principales
+│   ├── responsive.css      # Estilos responsive (mobile-first)
+│   └── launcher.css        # Estilos del launcher y modal de Polvorina
 │
 ├── img/
-│   ├── banner-prov-1.png  # Banner para carrusel
-│   ├── banner-prov.png    # Banner alternativo
-│   ├── POLVORA-1.webp     # Imagen de eventos
-│   ├── POLVORA-2.jpg      # Imagen del espacio
-│   └── logos/
-│       ├── asoc-logo.jpg           # Logo Asociación de Amigos
-│       ├── circ-logo-cp.png        # Logo circular
-│       ├── large-logo.png          # Logo principal grande
-│       └── polvora-logo-sf.png     # Logo sin fondo
+│   ├── ...
 │
-└── js/                    # Directorio para scripts (vacío actualmente)
+├── js/
+│   ├── launcher.js         # Lógica de apertura/cierre del modal Polvorina
+│   └── ...
+│
+├── pages/
+│   └── chat-bot/
+│       ├── polvorina.html      # UI del chat embebido (iframe)
+│       ├── chatbot.css         # Estilos del chat Polvorina
+│       ├── polvorina.js        # Lógica de UI y streaming del chat
+│       ├── polvorina-api.js    # API client para backend/chat
+│       ├── PROMPT-BOT.md       # Prompt base (personalidad y reglas)
+│       └── faqs.json           # Preguntas frecuentes para grounding
+│
+├── server.js               # Servidor Node.js (proxy seguro para chat)
+├── package.json            # Dependencias backend
+├── .env                    # Variables de entorno (API key, modelo)
+└── ...
 ```
 
 ## 🎨 Paleta de Colores
@@ -164,6 +174,53 @@ El sitio utiliza una paleta de colores cálida y cultural:
 - Diseño responsive con elementos que se ocultan en móviles
 
 ## 🆕 Últimas Actualizaciones
+
+### Versión 2.0 (Marzo 2026)
+
+#### 🧠 Integración de Asistente Virtual "Polvorina"
+
+- 🚀 **Asistente cultural Polvorina**: Chatbot accesible desde cualquier página mediante un botón flotante (launcher) y modal embebido.
+- 💬 **Interfaz de chat moderna**: UI responsive, con soporte para tema claro/oscuro, spinner de carga, envío con Enter, y burbuja de ayuda en móviles.
+- 🔒 **Backend seguro**: Proxy Node.js/Express que protege la API key y permite desarrollo local sin exponer secretos.
+- 🔗 **Streaming de respuestas**: Soporte para respuestas en tiempo real (simulado si el proveedor no soporta streaming nativo).
+- 📚 **RAG/FAQs**: El bot utiliza un prompt base y recupera automáticamente respuestas relevantes de un archivo de preguntas frecuentes (`faqs.json`).
+- 🌓 **Soporte de tema claro/oscuro**: El launcher, el modal y el chat se adaptan automáticamente al modo de color del sitio.
+- 🛡️ **Fallback local**: Si la API upstream no responde, el bot puede simular respuestas para desarrollo offline.
+- 🧩 **Integración no invasiva**: Todo el código del bot está bajo `pages/chat-bot/` y los cambios en `index.html` son mínimos.
+
+#### Cómo usar Polvorina en desarrollo
+
+1. Instala dependencias backend:
+  ```bash
+  npm install
+  ```
+2. Crea un archivo `.env` en la raíz con:
+  ```env
+  DEEPSEEK_API_KEY=tu_api_key
+  DEEPSEEK_MODEL=deepseek-chat
+  # Opcional:
+  # DEEPSEEK_TEMPERATURE=0.7
+  # DEEPSEEK_MAX_TOKENS=1024
+  ```
+3. Inicia el servidor backend:
+  ```bash
+  npm start
+  # o
+  node server.js
+  ```
+4. Abre `index.html` en tu navegador. El botón de Polvorina aparecerá en la esquina inferior derecha.
+
+#### Endpoints disponibles
+
+- `POST /api/chat` — Respuesta completa (JSON)
+- `POST /api/chat/stream` — Respuesta en streaming (texto plano, chunked)
+
+#### Personalización
+
+- Modifica `pages/chat-bot/PROMPT-BOT.md` para cambiar la personalidad y reglas del bot.
+- Agrega o edita preguntas en `pages/chat-bot/faqs.json` para mejorar el grounding de respuestas.
+
+---
 
 ### Versión 1.1 (Noviembre 2025)
 
