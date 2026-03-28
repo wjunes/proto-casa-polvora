@@ -112,6 +112,7 @@ test/
 tests/
 *.test.html
 *.test.js
+*.gitignore
 
 # ===================================
 # Documentación generada
