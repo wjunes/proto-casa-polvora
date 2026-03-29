@@ -22,22 +22,42 @@ const fs = require('fs');
 const path = require('path');
 let SYSTEM_PROMPT = '';
 let FAQ_TEXT = '';
+let parsedFaqs = null;
+
+// Helper: try multiple candidate locations for prompt/faqs to support different layouts
+function firstExisting(...candidates) {
+  for (const p of candidates) {
+    try { if (fs.existsSync(p)) return p; } catch (e) { /* ignore */ }
+  }
+  return null;
+}
+
 try {
-  const promptPath = path.join(__dirname, 'pages', 'chat-bot', 'PROMPT-BOT.md');
-  if (fs.existsSync(promptPath)) {
+  const candidates = [
+    path.join(__dirname, 'PROMPT-BOT.md'),
+    path.join(__dirname, 'pages', 'chat-bot', 'PROMPT-BOT.md'),
+    path.join(__dirname, '..', 'pages', 'chat-bot', 'PROMPT-BOT.md')
+  ];
+  const promptPath = firstExisting(...candidates);
+  if (promptPath) {
     SYSTEM_PROMPT = fs.readFileSync(promptPath, 'utf8').trim();
     console.log('Loaded system prompt from', promptPath);
   }
 } catch (e) {
   console.warn('Could not load PROMPT-BOT.md', e && e.message);
 }
+
 try {
-  const faqPath = path.join(__dirname, 'pages', 'chat-bot', 'faqs.json');
-  if (fs.existsSync(faqPath)) {
+  const candidates = [
+    path.join(__dirname, 'faqs.json'),
+    path.join(__dirname, 'pages', 'chat-bot', 'faqs.json'),
+    path.join(__dirname, '..', 'pages', 'chat-bot', 'faqs.json')
+  ];
+  const faqPath = firstExisting(...candidates);
+  if (faqPath) {
     const raw = fs.readFileSync(faqPath, 'utf8');
     const parsed = JSON.parse(raw);
     if (parsed && Array.isArray(parsed.faq)) {
-      // Keep parsed FAQs for retrieval and build a compact FAQ text block as fallback
       parsedFaqs = parsed.faq;
       FAQ_TEXT = parsed.faq.map((q, i) => `Q${i+1}: ${q.question}\nA: ${q.answer}`).join('\n\n');
       console.log('Loaded FAQs from', faqPath);
@@ -309,4 +329,22 @@ app.post('/api/chat/stream', async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Polvorina server listening on http://localhost:${PORT}`);
+  // Optional: serve the frontend static files from the project root when requested.
+  // In production (cPanel) you can set SERVE_STATIC=1 in the Node.js app environment
+  // so this server will serve the frontend (index.html and static assets) from
+  // the parent directory of backend (assumes repo layout where backend is a subfolder).
+  try {
+    const serveStaticFlag = String(process.env.SERVE_STATIC || '').toLowerCase();
+    if (serveStaticFlag === '1' || serveStaticFlag === 'true') {
+      const staticRoot = path.join(__dirname, '..');
+      app.use(express.static(staticRoot));
+      // Ensure index.html is served at root
+      app.get('/', (req, res) => {
+        res.sendFile(path.join(staticRoot, 'index.html'));
+      });
+      console.log('Serving static frontend from', staticRoot);
+    }
+  } catch (e) {
+    console.warn('Could not enable static serving', e && e.message);
+  }
 });
