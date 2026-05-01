@@ -1,3 +1,58 @@
+:root[data-theme="dark"],
+[data-theme="dark"]:root {
+  --color-fondo: #232323;
+  --color-header: #181818;
+  --color-texto: #f5f0e6;
+  --color-principal: #f06529;
+  --color-secundario: #b7410e;
+  --color-hover: #ec4a04;
+  --color-hover-dark: #8a2e0a;
+}
+
+[data-theme="dark"] body {
+  background-color: var(--color-fondo) !important;
+  color: var(--color-texto) !important;
+}
+
+[data-theme="dark"] .chat-header {
+  background-color: var(--color-header) !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .chatbot-container {
+  background-color: #181818 !important;
+  color: var(--color-texto) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .user-message {
+  background-color: var(--color-principal) !important;
+  color: #fff !important;
+}
+[data-theme="dark"] .bot-message {
+  background-color: var(--color-header) !important;
+  color: var(--color-texto) !important;
+}
+
+[data-theme="dark"] .send-btn {
+  background-color: var(--color-header) !important;
+  color: #fff !important;
+  border-color: var(--color-header) !important;
+}
+[data-theme="dark"] .send-btn:hover,
+[data-theme="dark"] .send-btn:focus {
+  color: var(--color-hover, #ec4a04) !important;
+  background-color: #fff !important;
+  border-color: var(--color-header, #2f2f2f) !important;
+}
+
+[data-theme="dark"] a,
+[data-theme="dark"] a:visited {
+  color: var(--color-hover, #ec4a04) !important;
+}
+[data-theme="dark"] a:hover {
+  color: #fff !important;
+}
 /* Paleta y estilos base para Polvorina
    - Tonos: azules (principal), blanco (texto/fondos), y gradiente crepúsculo rojizo
    - Archivo: pages/chat-bot/chatbot.css
@@ -127,6 +182,7 @@ body.polvorina-root {
   color: var(--polv-strong-text);
   -webkit-font-smoothing: antialiased;
 }
+
 
 /* Header */
 .polvo-header {

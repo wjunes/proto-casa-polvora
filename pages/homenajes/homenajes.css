@@ -1,3 +1,89 @@
+[data-theme="dark"] .btn,
+[data-theme="dark"] .btn-outline-dark {
+    color: #fff !important;
+}
+[data-theme="dark"] .btn:hover,
+[data-theme="dark"] .btn:focus,
+[data-theme="dark"] .btn-outline-dark:hover,
+[data-theme="dark"] .btn-outline-dark:focus {
+    color: #fff !important;
+}
+:root[data-theme="dark"],
+[data-theme="dark"]:root {
+    --color-fondo: #232323;
+    --color-header: #181818;
+    --color-texto: #f5f0e6;
+    --color-principal: #f06529;
+    --color-secundario: #b7410e;
+    --color-hover: #ec4a04;
+    --color-hover-dark: #8a2e0a;
+}
+
+[data-theme="dark"] body {
+    background-color: var(--color-fondo) !important;
+    color: var(--color-texto) !important;
+}
+
+[data-theme="dark"] .page-header {
+    background-color: var(--color-header) !important;
+    color: #fff !important;
+    border-bottom: 4px solid var(--color-secundario);
+}
+
+[data-theme="dark"] .page-header h1 {
+    color: var(--color-principal) !important;
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .container,
+[data-theme="dark"] .row,
+[data-theme="dark"] .col-md-3 {
+    background-color: #181818 !important;
+    color: var(--color-texto) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .card-text {
+    color: var(--color-texto) !important;
+}
+
+[data-theme="dark"] a,
+[data-theme="dark"] a:visited {
+    color: var(--color-hover, #ec4a04) !important;
+}
+[data-theme="dark"] a:hover {
+    color: #fff !important;
+}
+
+[data-theme="dark"] .btn-regresar-inicio {
+    background-color: var(--color-header) !important;
+    color: #fff !important;
+    border-color: var(--color-header) !important;
+}
+[data-theme="dark"] .btn-regresar-inicio:hover,
+[data-theme="dark"] .btn-regresar-inicio:focus {
+    color: var(--color-hover, #ec4a04) !important;
+    background-color: #fff !important;
+    border-color: var(--color-header, #2f2f2f) !important;
+}
+
+[data-theme="dark"] .page-footer {
+    background-color: var(--color-header) !important;
+    color: #fff !important;
+}
+/* Botón regresar a inicio en el header */
+.btn-regresar-inicio {
+    min-width: 140px;
+    color: #fff !important;
+}
+
+.btn-regresar-inicio:hover,
+.btn-regresar-inicio:focus {
+    color: var(--color-hover, #ec4a04) !important;
+    background-color: #fff !important;
+    border-color: var(--color-header, #2f2f2f) !important;
+}
 /* ===================================
    HOMENAJES - Casa de la Pólvora
    Estilos específicos para la sección de homenajes
@@ -30,6 +116,7 @@ body {
 }
 
 .page-header {
+    height: 142px;
     margin: 0 auto;
     left: 0;
     right: 0;
@@ -37,6 +124,7 @@ body {
     color: #ffffff;
     padding: 40px 0;
     text-align: center;
+    justify-content: center;
     border-bottom: 4px solid var(--color-secundario);
     padding: 1rem;
 }
@@ -47,7 +135,6 @@ body {
     letter-spacing: 2px;
     font-weight: 600;
     color: var(--color-principal);
-    margin-bottom: 0.75rem;
 }
 
 main {
@@ -223,7 +310,6 @@ main {
     .card-title {
         font-size: 1.2rem;
     }
-
 }
 
 @media (max-width: 768px) {
@@ -294,7 +380,7 @@ a:hover {
     width: 100%;
     background-color: var(--color-secundario);
     border-color: var(--color-secundario);
-    color: #fff;
+    color: #fff !important;
     font-weight: 600;
     font-size: 1rem;
     padding: 0.75rem 1.5rem;

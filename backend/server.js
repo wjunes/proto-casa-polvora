@@ -17,6 +17,8 @@ const KEY = process.env.DEEPSEEK_API_KEY;
 const UPSTREAM = process.env.DEEPSEEK_API_URL || 'https://api.deepseek.com/chat/completions';
 const MODEL = process.env.DEEPSEEK_MODEL || undefined;
 
+// Upstream configuration is read from environment; avoid logging secrets in production
+
 // Load strict system prompt and FAQs from pages/chat-bot
 const fs = require('fs');
 const path = require('path');
@@ -201,6 +203,18 @@ app.post('/api/chat', async (req, res) => {
         // ignore parse errors
       }
 
+      // If the upstream indicates insufficient balance, return a clear 402 to the client
+      if (upstreamRes.status === 402) {
+        let parsedMsg = '';
+        try {
+          const parsed = JSON.parse(txt);
+          parsedMsg = parsed && parsed.error && parsed.error.message ? parsed.error.message : String(txt).slice(0, 200);
+        } catch (e) {
+          parsedMsg = String(txt).slice(0, 200);
+        }
+        return res.status(402).json({ error: 'insufficient_balance', message: parsedMsg, note: 'Upstream provider reports insufficient balance. Refill account to resume normal operation.' });
+      }
+
       return res.status(502).json({ error: 'Upstream error', details: txt });
     }
 
@@ -306,6 +320,19 @@ app.post('/api/chat/stream', async (req, res) => {
       } catch (e) {
         // ignore
       }
+      // If upstream reports insufficient balance, stream a short explanatory message
+      if (upstreamRes.status === 402) {
+        let parsedMsg = '';
+        try {
+          const parsed = JSON.parse(txt);
+          parsedMsg = parsed && parsed.error && parsed.error.message ? parsed.error.message : String(txt).slice(0, 200);
+        } catch (e) {
+          parsedMsg = String(txt).slice(0, 200);
+        }
+        const msg = `Error: upstream provider - ${parsedMsg}. Please refill provider account.`;
+        return streamText(msg);
+      }
+
       return res.status(502).json({ error: 'Upstream error', details: txt });
     }
 
@@ -326,6 +353,8 @@ app.post('/api/chat/stream', async (req, res) => {
     return res.status(500).json({ error: 'internal_error' });
   }
 });
+
+// Diagnostic endpoint removed (was used for temporary testing).
 
 app.listen(PORT, () => {
   console.log(`Polvorina server listening on http://localhost:${PORT}`);

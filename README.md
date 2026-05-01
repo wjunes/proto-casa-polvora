@@ -34,7 +34,6 @@ Este proyecto es un sitio web responsive diseñado para promover las actividades
 
 ## 📁 Estructura del Proyecto
 
-
 ```
 proto-casa-polvora/
 │
@@ -84,7 +83,6 @@ El sitio utiliza una paleta de colores cálida y cultural:
 ### Breakpoints
 
 - **Mobile**: 320px - 1200px
-
   - Oculta logos del header
   - Muestra sección de identidad con logos
   - Ajusta tamaño de carrusel
@@ -191,23 +189,29 @@ El sitio utiliza una paleta de colores cálida y cultural:
 #### Cómo usar Polvorina en desarrollo
 
 1. Instala dependencias backend:
-  ```bash
-  npm install
-  ```
+
+```bash
+npm install
+```
+
 2. Crea un archivo `.env` en la raíz con:
-  ```env
-  DEEPSEEK_API_KEY=tu_api_key
-  DEEPSEEK_MODEL=deepseek-chat
-  # Opcional:
-  # DEEPSEEK_TEMPERATURE=0.7
-  # DEEPSEEK_MAX_TOKENS=1024
-  ```
+
+```env
+DEEPSEEK_API_KEY=tu_api_key
+DEEPSEEK_MODEL=deepseek-chat
+# Opcional:
+# DEEPSEEK_TEMPERATURE=0.7
+# DEEPSEEK_MAX_TOKENS=1024
+```
+
 3. Inicia el servidor backend:
-  ```bash
-  npm start
-  # o
-  node server.js
-  ```
+
+```bash
+npm start
+# o
+node server.js
+```
+
 4. Abre `index.html` en tu navegador. El botón de Polvorina aparecerá en la esquina inferior derecha.
 
 #### Endpoints disponibles
@@ -294,4 +298,37 @@ Para más información sobre la Casa de la Pólvora:
 
 **Casa de la Pólvora** - Rescatando la memoria histórica de nuestra comunidad 🏛️
 
-Prototipo de aplicación web desarrollado con ❤️ para la Casa de la Pólvora_
+Prototipo de aplicación web desarrollado con ❤️ para la Casa de la Pólvora\_
+
+## 🚀 Flujo de ejecución unificado (Backend + Frontend)
+
+El proyecto está diseñado para que tanto el backend (API) como el frontend (sitio web) sean servidos desde un único servidor Express. Esto simplifica el desarrollo y el despliegue.
+
+### ¿Cómo funciona?
+
+- El backend (Node.js + Express) se encuentra en la carpeta `backend/`.
+- El mismo servidor Express sirve los endpoints de la API (por ejemplo, `/api/chat`) y los archivos estáticos del frontend (HTML, CSS, JS, imágenes) desde la raíz del proyecto.
+- No es necesario ejecutar servidores separados ni configurar proxies.
+
+### Instrucciones para desarrollo y producción
+
+1. **Ubícate en la carpeta `backend/`:**
+   ```sh
+   cd backend
+   ```
+2. **Asegúrate de tener el archivo `.env` correctamente configurado en `backend/` (ver ejemplo en `.env.example`).**
+3. **Inicia el servidor:**
+   ```sh
+   node server.js
+   ```
+4. **Accede a la web en tu navegador:**
+   - Ingresa a [http://localhost:3000/index.html](http://localhost:3000/index.html)
+   - Todo el sitio y el chat-bot funcionarán correctamente desde esa URL.
+
+### Ventajas de este flujo
+
+- Un solo comando para iniciar todo el sistema.
+- El backend y el frontend comparten el mismo dominio y puerto, evitando problemas de CORS.
+- Fácil de desplegar en servicios como cPanel, VPS o servidores Node.js.
+
+---
