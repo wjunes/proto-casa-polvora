@@ -322,6 +322,10 @@ main {
    FOOTER
 ----------------------------------------------------------- */
 .page-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     background-color: var(--color-header);
     color: white;
     padding: 25px 10px;
@@ -330,6 +334,22 @@ main {
     font-size: 0.95rem;
 }
 
+.page-footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    margin-top: 0;
+}
+
+.page-footer a:hover {
+    color: var(--color-hover);
+    text-transform: uppercase;
+}
+.page-footer p {
+    margin-top: 0.85rem;
+    font-weight: 500;
+}
 /* -----------------------------------------------------------
    RESPONSIVE DESIGN
 ----------------------------------------------------------- */
