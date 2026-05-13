@@ -1,15 +1,15 @@
-#amigos{
+#amigos {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 #amigos img {
-    max-width:60%;
+    max-width: 100%;
     height: auto;
 }
 
-#agenda{
+#agenda {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,5 +19,3 @@
     max-width: 60%;
     height: auto;
 }
-
-
