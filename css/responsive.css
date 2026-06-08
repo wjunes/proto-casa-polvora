@@ -3,11 +3,28 @@
    Mobile-first approach
    =================================== */
 
+/* MÓVILES PEQUEÑOS (320px - 768px) 
+@media (min-width: 320px) and (max-width: 768px) {
+    #hero .carousel-caption p {
+        display: none;
+    }
+}
+*/
 /* TABLETS Y MÓVILES (320px - 1200px) */
 @media (min-width: 320px) and (max-width: 1200px) {
     body {
         padding: 0.5rem;
         font-size: 15px;
+    }
+
+    #hero .carousel-caption p {
+        color: #fff;
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        background-color: rgba(160, 160, 160, 0.3) !important;
+        border-radius: 8px;
+        padding: 0.5rem 0.5rem;
+        margin-bottom: 0.1rem;
+        line-height: 1;
     }
     /*Estilos provisorios se deben borrar*/
     #amigos img {

@@ -180,6 +180,13 @@ main {
     font-size: 1.05rem;
 }
 
+.history-block-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
 /* Galería de imágenes históricas */
 .history-imgs {
     display: grid;

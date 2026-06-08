@@ -113,36 +113,28 @@ function findTopFaqs(query, topN = 3) {
   return scored.filter((s) => s.score > 0).slice(0, topN).map((s) => s.f);
 }
 
+const HARD_GUARD_PROMPT = `
+REGLAS INMUTABLES:
+- No inventar actividades, horarios, contactos, ubicaciones ni eventos.
+- Si no está confirmado en la web/FAQ, responder:
+  "No encontré información confirmada sobre eso en la web oficial.
+   Te recomiendo revisar la sección Contacto."
+- Nunca asumir datos faltantes.
+`;
+
 function buildMessagesFromRequest(reqBody, userMessage) {
   const msgs = [];
+
+  // 1) Siempre primero las reglas duras
+  msgs.push({ role: 'system', content: HARD_GUARD_PROMPT });
+
+  // 2) Luego PROMPT-BOT.md
   if (SYSTEM_PROMPT) msgs.push({ role: 'system', content: SYSTEM_PROMPT });
 
-  const useFaqs = !(reqBody && typeof reqBody.use_faqs !== 'undefined' && reqBody.use_faqs === false);
-  if (useFaqs) {
-    if (parsedFaqs && userMessage) {
-      const relevant = findTopFaqs(userMessage, 3);
-      if (relevant.length) {
-        const block = relevant.map((q) => `Q: ${q.question}\nA: ${q.answer}`).join('\n\n');
-        msgs.push({
-          role: 'system',
-          content: 'Use the following relevant FAQs as factual references when answering:\n\n' + block
-        });
-      } else if (FAQ_TEXT) {
-        msgs.push({
-          role: 'system',
-          content: 'Refer to these FAQs when answering user questions:\n\n' + FAQ_TEXT
-        });
-      }
-    } else if (FAQ_TEXT) {
-      msgs.push({
-        role: 'system',
-        content: 'Refer to these FAQs when answering user questions:\n\n' + FAQ_TEXT
-      });
-    }
-  }
-
+  // 3) Ignorar "system" que venga desde frontend (evita override)
   if (reqBody && Array.isArray(reqBody.messages) && reqBody.messages.length) {
-    msgs.push(...reqBody.messages);
+    const safe = reqBody.messages.filter(m => m && m.role !== 'system');
+    msgs.push(...safe);
   } else if (typeof userMessage === 'string') {
     msgs.push({ role: 'user', content: userMessage });
   }
